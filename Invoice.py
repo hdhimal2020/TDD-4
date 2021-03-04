@@ -15,13 +15,14 @@ class Invoice:
             total_impure_price += float(v['unit_price']) * int(v['qnt'])
         total_impure_price = round(total_impure_price, 2)
         return total_impure_price
-    def totalDiscount (self, products):
-        total_discount =0
+
+    def totalDiscount(self, products):
+        total_discount = 0
         for k, v in products.items():
-            total_discount += (int(v['qnt'])*float(v['unit_price']))*float(v['discount'])/100
-            total_discount = round(total_discount, 2)
-            self.total_discount = total_discount
-            return total_discount
+            total_discount += (int(v['qnt']) * float(v['unit_price']) * float(v['discount']) / 100)
+        total_discount = round(total_discount, 2)
+        self.total_discount = total_discount
+        return total_discount
 
     def totalPurePrice(self, products):
         total_pure_price = self.totalImpurePrice(products) - self.totalDiscount(products)
@@ -44,3 +45,14 @@ class Invoice:
             else:
                 return userInput
 
+    def fiveNotebooks(self, products):
+        for k, v in products.items():
+            five_notebook = 5
+            five_notebook = float(v['unit_price']) * five_notebook
+        five_notebook = round(five_notebook, 2)
+        return five_notebook
+
+    def totalTax(self, products):
+        tax_calculation = self.totalImpurePrice(products) - self.totalDiscount(products)
+        tax_calculation = tax_calculation + (tax_calculation * (7.25/100))
+        return round(tax_calculation, 2)
