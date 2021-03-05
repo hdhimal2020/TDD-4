@@ -45,14 +45,15 @@ class Invoice:
             else:
                 return userInput
 
+# Group project - Test 1 to calculate the total price of 5 notebooks
     def fiveNotebooks(self, products):
         for k, v in products.items():
-            five_notebook = 5
+            five_notebook = 5 # harcodding
             five_notebook = float(v['unit_price']) * five_notebook
         five_notebook = round(five_notebook, 2)
         return five_notebook
-
+# Group Project - Test 2 to calculate a 7.25% tax + the pure price of all items
     def totalTax(self, products):
         tax_calculation = self.totalImpurePrice(products) - self.totalDiscount(products)
-        tax_calculation = tax_calculation + (tax_calculation * (7.25/100))
+        tax_calculation += tax_calculation * (7.25/100)
         return round(tax_calculation, 2)

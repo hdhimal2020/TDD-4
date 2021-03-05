@@ -34,14 +34,14 @@ def test_CanCalculateTotalPurePrice(invoice, products):
     assert invoice.totalPurePrice(products) == 69.38
 
 # Group project - Part 2: TDD
-
-# Test # 1 - calculate 5 notebooks price  = $37.5 total
+# Team members: Hari Dhimal, Kush Bhuva, Alex Raygoza
+# Test # 1 - calculates the total price of 5 notebooks @ 7.5 each  = $37.5 total
 def test_CanCalculateFiveNotebooksPrice(invoice, products):
     invoice.fiveNotebooks(products)
     assert invoice.fiveNotebooks(products) == 37.5
 
 
-# Test # 2 - calculate a 7.25% tax + the pure price
+# Test # 2 - calculates a 7.25% tax + the pure price of all items
 def test_CanCalculateTax(invoice, products):
     invoice.totalTax(products)
     assert invoice.totalTax(products) == 74.41
