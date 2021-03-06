@@ -45,7 +45,7 @@ class Invoice:
             else:
                 return userInput
 
-# Group project - Test 1 to calculate the total price of 5 notebooks
+# Group project - Test 1 to calculate the total price of 5 notebooks!
     def fiveNotebooks(self, products):
         for k, v in products.items():
             five_notebook = 5 # harcodding
